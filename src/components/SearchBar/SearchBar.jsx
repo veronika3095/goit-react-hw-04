@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import toast from 'react-hot-toast';
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import styles from './SearchBar.module.css';
 
 const SearchBar = ({ onSubmit }) => {
@@ -8,8 +9,8 @@ const SearchBar = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!query.trim()) {
-      toast.error('Please enter a search term!');
+    if (query.trim() === '') {
+      toast.error('Please enter a keyword to search images');
       return;
     }
     onSubmit(query);
@@ -17,16 +18,17 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <header>
-      <form className={styles.form} onSubmit={handleSubmit}>
+    <header className={styles.header}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Search images and photos"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className={styles.input}
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
         />
-        <button type="submit" className={styles.button}>Search</button>
+        <button type="submit">Search</button>
       </form>
     </header>
   );

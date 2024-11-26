@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import styles from './ErrorMessage.module.css';
+
 const ErrorMessage = () => (
-  <div className="error">
-    <p>Something went wrong. Please try again later.</p>
-  </div>
+  <p className={styles.error}>Sorry, something went wrong. Please try again later.</p>
 );
 
 export default ErrorMessage;

@@ -1,6 +1,11 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+
+import React from 'react';
+import styles from './LoadMoreBtn.module.css';
+
 const LoadMoreBtn = ({ onClick }) => (
-  <button onClick={onClick} className="load-more-btn">
+  <button className={styles.button} onClick={onClick}>
     Load more
   </button>
 );

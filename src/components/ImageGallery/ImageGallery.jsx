@@ -1,13 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import React from 'react';
 import ImageCard from '../ImageCard/ImageCard';
-import Loader from '../Loader/Loader';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import styles from './ImageGallery.module.css';
 
-const ImageGallery = ({ images, isLoading, error }) => {
-  if (isLoading) return <Loader />;
-  if (error) return <ErrorMessage />;
-  
+const ImageGallery = ({ images }) => {
   return (
     <ul className={styles.gallery}>
       {images.map((image) => (
