@@ -1,0 +1,36 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.modalContent {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    /* background-color: #fff; */
+    padding: 20px;
+    /* overflow-y: auto; */
+    border-radius: 10px;
+}
+
+.modalContent img {
+    width: 900px;
+    height: 680px;
+    border-radius: 10px;
+}
+
+.modalContent button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #be34eb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
