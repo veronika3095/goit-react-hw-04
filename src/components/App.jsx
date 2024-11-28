@@ -59,7 +59,11 @@ const App = () => {
 
   
   const handleLoadMore = () => {
-    fetchImages(query, page);  
+    setPage((prevPage) => {
+      const newPage = prevPage + 1;  
+      fetchImages(query, newPage);   
+      return newPage;  
+    });
   };
 
   
