@@ -58,13 +58,10 @@ const App = () => {
   };
 
   
-  const handleLoadMore = () => {
-    setPage((prevPage) => {
-      const newPage = prevPage + 1;  
-      fetchImages(query, newPage);   
-      return newPage;  
-    });
+   const handleLoadMore = () => {
+    setPage((prevPage) => prevPage + 1);  
   };
+
 
   
   const openModal = (image) => {
