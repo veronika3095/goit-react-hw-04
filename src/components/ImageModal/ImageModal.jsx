@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-  import React from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import styles from './ImageModal.module.css';
 
