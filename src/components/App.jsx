@@ -11,19 +11,19 @@ import { toast, Toaster } from 'react-hot-toast';
 
 const App = () => {
   const [images, setImages] = useState([]);  
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);  
   const [error, setError] = useState(null);  
   const [page, setPage] = useState(1);  
   const [query, setQuery] = useState('');  
   const [isModalOpen, setIsModalOpen] = useState(false);  
   const [selectedImage, setSelectedImage] = useState(null);  
 
-  const accessKey = 'WvpUHSEntiSwNm8VKC7IfcLGbhcfRswNIFoshA4_5dc';  
+  const accessKey = '1DTJTJIrwa7gWzp8MBeO0faABo9OZt09nfAhFdwE3Z8';  
 
-  
+ 
   const fetchImages = async (searchQuery, pageNumber) => {
     setLoading(true);
-    setError(null);  
+    setError(null); 
     try {
       const response = await axios.get('https://api.unsplash.com/search/photos', {
         params: {
@@ -34,7 +34,6 @@ const App = () => {
         },
       });
       setImages((prevImages) => [...prevImages, ...response.data.results]);  
-      setPage((prevPage) => prevPage + 1);  
     } catch (error) {
       setError(error.message);  
       toast.error('Failed to fetch images!');  
@@ -45,9 +44,9 @@ const App = () => {
 
   
   useEffect(() => {
-    if (!query) return;  
-
-    fetchImages(query, page); 
+    if (query) {
+      fetchImages(query, page);  
+    }
   }, [query, page]);  
 
   
@@ -58,10 +57,9 @@ const App = () => {
   };
 
   
-   const handleLoadMore = () => {
+  const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);  
   };
-
 
   
   const openModal = (image) => {
@@ -77,19 +75,19 @@ const App = () => {
 
   return (
     <div>
-      <SearchBar onSubmit={handleSearchSubmit} />  {}
+      <SearchBar onSubmit={handleSearchSubmit} />
       
       {loading && <Loader />}  {}
       {error && <ErrorMessage />}  {}
       
       {images.length > 0 && (
-  <ImageGallery images={images} onImageClick={openModal} />
-)}
-      
-      {images.length > 0 && !loading && (
-        <LoadMoreBtn onClick={handleLoadMore} loading={loading} />  
+        <ImageGallery images={images} onImageClick={openModal} />  
       )}
-      
+
+      {images.length > 0 && !loading && (
+        <LoadMoreBtn onClick={handleLoadMore} />  
+      )}
+
       <ImageModal isOpen={isModalOpen} onClose={closeModal} image={selectedImage} />  {}
       
       <Toaster />  {}
