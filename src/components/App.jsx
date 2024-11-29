@@ -18,7 +18,7 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);  
   const [selectedImage, setSelectedImage] = useState(null);  
 
-  const accessKey = '1DTJTJIrwa7gWzp8MBeO0faABo9OZt09nfAhFdwE3Z8';  
+  const accessKey = 'WvpUHSEntiSwNm8VKC7IfcLGbhcfRswNIFoshA4_5dc';  
 
  
   const fetchImages = async (searchQuery, pageNumber) => {
